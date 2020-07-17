@@ -12,4 +12,14 @@
     font-size: 90px;
     font-family: sans-serif;
     font-weight: bold;
+    margin: 0px;
+}
+
+@media (max-width: 650px) {
+    #number-guess, #result, #history, #lost-game {
+        max-width: 350px;
+    }
+    .banner {
+        font-size: 80px;
+    }
 }

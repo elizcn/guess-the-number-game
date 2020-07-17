@@ -16,6 +16,7 @@
  * DONE: Deactivate submission after the user won/lost
  * DONE: Add confetti effect if user wins
  * TO DO: Add header animation
+ * DONE: Make it responsive
  */
 
 
@@ -28,12 +29,15 @@ let correctNumber = getRandomNumber();
 //Variable to set the number of intents
 let numberIntents = 8;
 
+//Instructions
+let instructions = "Enter a number between 0 and 100";
+
 window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
     document.getElementById("restart-game").addEventListener("click", initGame)
 
     getRandomNumber();
-
+    document.getElementById("guess-counter").innerHTML = instructions;
 }
 
 /**
@@ -100,7 +104,7 @@ function displayResult(numberGuess) {
     // Deactivate check button, so we no longer accept inputs
     document.getElementById("number-submit").disabled = true;
   }
-  if ((guesses.length + 1) >= numberIntents) {
+  if ((guesses.length + 1) >= numberIntents && numberGuess != correctNumber) {
     showYouLost();
     // Deactivate check button, so we no longer accept inputs
    document.getElementById("number-submit").disabled = true;
@@ -118,8 +122,8 @@ function initGame(){
 
   //Reset the result display, number field guess and guess counter
   document.getElementById("result").innerHTML = "";
-  document.getElementById("guess-counter").innerHTML = "";
-  document.getElementById('number-guess').value = "";
+  document.getElementById("lost-game").innerHTML = "";
+  document.getElementById("guess-counter").innerHTML = instructions;
 
   // Reset the guesses array
   guesses = [];
