@@ -124,6 +124,7 @@ function initGame(){
   document.getElementById("result").innerHTML = "";
   document.getElementById("lost-game").innerHTML = "";
   document.getElementById("guess-counter").innerHTML = instructions;
+  document.getElementById("number-guess").value = "";
 
   // Reset the guesses array
   guesses = [];
